@@ -29,6 +29,7 @@ public class TodoUI extends UI {
         addForm();
         addTodoList();
         addActionButtons();
+        addGrid();
     }
 
     private void setupLayout() {
@@ -66,11 +67,10 @@ public class TodoUI extends UI {
         });
         addButton.setClickShortcut(ShortcutAction.KeyCode.ENTER);
 
-//        Grid<Todo> grid = new Grid<>();
-//        grid.setItems(getItems());
-//
-//        grid.addColumn(Person::getName).setHeader("Name");
-//        grid.addColumn(Person::getAge).setHeader("Age");
+
+
+
+
 
     }
 
@@ -86,4 +86,14 @@ public class TodoUI extends UI {
         layout.addComponent(deleteButton);
 
     }
+
+    private void addGrid() {
+        Grid<Todo> grid = new Grid<>();
+        grid.setItems(todoList.getTodos());
+
+        grid.addColumn(Todo::getText).setCaption("Text");
+        grid.addColumn(Todo::isDone).setCaption("Done");
+        layout.addComponent(grid);
+    }
+
 }

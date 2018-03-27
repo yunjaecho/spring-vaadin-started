@@ -48,4 +48,9 @@ public class TodoList extends VerticalLayout implements TodoChangeListener  {
         repository.deleteByDone(true);
         update();
     }
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
 }
